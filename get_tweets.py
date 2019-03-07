@@ -28,7 +28,7 @@ def get_tweets(username):
 	tweets_for_csv = []
 	for tweet in tweepy.Cursor(api.user_timeline, screen_name = username).items(number_of_tweets):
         #create array of tweet information: username, tweet id, date/time, text
-		tweets_for_csv.append([username, tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")])
+		tweets_for_csv.append([tweet.text.encode("utf-8")])
 
 	#write to a new csv file from the array of tweets
 	outfile = username + "_tweets.csv"
